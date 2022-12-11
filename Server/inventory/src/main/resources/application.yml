@@ -3,13 +3,13 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost/customers
+    url: jdbc:mysql://localhost/store
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-delete
     properties:
       dialect: org.hibernate.dialect.MySQLDialect
       format_sql: true
