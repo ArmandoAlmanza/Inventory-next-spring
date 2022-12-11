@@ -1,5 +1,5 @@
 import axiosInstance from "./axios";
-import { User } from "../../interfaces/user";
+// import { User } from "../../interfaces/user";
 import { Product } from "../../interfaces/Product";
 
 const axios = axiosInstance;
