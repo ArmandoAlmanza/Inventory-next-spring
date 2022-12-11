@@ -5,17 +5,17 @@ import java.util.Objects;
 public class User {
     private Integer id;
     private String userName;
-    private String email;
-    private String imagePath;
+    private String userEmail;
+    private String userImagePath;
 
     public User() {
     }
 
-    public User(Integer id, String userName, String email, String imagePath) {
+    public User(Integer id, String userName, String userEmail, String userImagePath) {
         this.id = id;
         this.userName = userName;
-        this.email = email;
-        this.imagePath = imagePath;
+        this.userEmail = userEmail;
+        this.userImagePath = userImagePath;
     }
 
     public Integer getId() {
@@ -34,20 +34,20 @@ public class User {
         this.userName = userName;
     }
 
-    public String getEmail() {
-        return email;
+    public String getUserEmail() {
+        return userEmail;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 
-    public String getImagePath() {
-        return imagePath;
+    public String getUserImagePath() {
+        return userImagePath;
     }
 
-    public void setImagePath(String imagePath) {
-        this.imagePath = imagePath;
+    public void setUserImagePath(String userImagePath) {
+        this.userImagePath = userImagePath;
     }
 
     @Override
@@ -55,12 +55,12 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(id, user.id) && Objects.equals(userName, user.userName) && Objects.equals(email, user.email) && Objects.equals(imagePath, user.imagePath);
+        return Objects.equals(id, user.id) && Objects.equals(userName, user.userName) && Objects.equals(userEmail, user.userEmail) && Objects.equals(userImagePath, user.userImagePath);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, userName, email, imagePath);
+        return Objects.hash(id, userName, userEmail, userImagePath);
     }
 
     @Override
@@ -68,8 +68,8 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", userName='" + userName + '\'' +
-                ", email='" + email + '\'' +
-                ", imagePath='" + imagePath + '\'' +
+                ", userEmail='" + userEmail + '\'' +
+                ", userImagePath='" + userImagePath + '\'' +
                 '}';
     }
 }
