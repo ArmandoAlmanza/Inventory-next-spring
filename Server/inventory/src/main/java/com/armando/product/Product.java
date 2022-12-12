@@ -2,14 +2,23 @@ package com.armando.product;
 
 import java.util.Objects;
 
-public class Product{
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
+public class Product {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	private String productName;
 	private String productDescription;
 	private String productImagePath;
 	private String productTag;
 
-	public Product(Integer id, String productName, String productDescription, String productImagePath, String productTag) {
+	public Product(Integer id, String productName, String productDescription, String productImagePath,
+			String productTag) {
 		this.id = id;
 		this.productName = productName;
 		this.productDescription = productDescription;
@@ -73,10 +82,15 @@ public class Product{
 
 	@Override
 	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
 		Product product = (Product) o;
-		return Objects.equals(id, product.id) && Objects.equals(productName, product.productName) && Objects.equals(productDescription, product.productDescription) && Objects.equals(productImagePath, product.productImagePath) && Objects.equals(productTag, product.productTag);
+		return Objects.equals(id, product.id) && Objects.equals(productName, product.productName)
+				&& Objects.equals(productDescription, product.productDescription)
+				&& Objects.equals(productImagePath, product.productImagePath)
+				&& Objects.equals(productTag, product.productTag);
 	}
 
 	@Override

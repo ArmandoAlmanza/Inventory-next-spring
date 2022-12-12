@@ -2,20 +2,36 @@ package com.armando.user;
 
 import java.util.Objects;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
     private String userName;
+
     private String userEmail;
+
+    @Column(columnDefinition = "varchar(500) default 'https://avatars.dicebear.com/api/adventurer/your-custom-seed.svg'")
     private String userImagePath;
+
+    private String userPassword;
 
     public User() {
     }
 
-    public User(Integer id, String userName, String userEmail, String userImagePath) {
+    public User(Integer id, String userName, String userEmail, String userImagePath, String userPassword) {
         this.id = id;
         this.userName = userName;
         this.userEmail = userEmail;
         this.userImagePath = userImagePath;
+        this.userPassword = userPassword;
     }
 
     public Integer getId() {
@@ -50,17 +66,29 @@ public class User {
         this.userImagePath = userImagePath;
     }
 
+    public String getUserPassword() {
+        return userPassword;
+    }
+
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
+    }
+
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         User user = (User) o;
-        return Objects.equals(id, user.id) && Objects.equals(userName, user.userName) && Objects.equals(userEmail, user.userEmail) && Objects.equals(userImagePath, user.userImagePath);
+        return Objects.equals(id, user.id) && Objects.equals(userName, user.userName)
+                && Objects.equals(userEmail, user.userEmail) && Objects.equals(userImagePath, user.userImagePath)
+                && Objects.equals(userPassword, user.userPassword);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, userName, userEmail, userImagePath);
+        return Objects.hash(id, userName, userEmail, userImagePath, userPassword);
     }
 
     @Override
@@ -70,6 +98,7 @@ public class User {
                 ", userName='" + userName + '\'' +
                 ", userEmail='" + userEmail + '\'' +
                 ", userImagePath='" + userImagePath + '\'' +
+                ", userPassword='" + userPassword + '\'' +
                 '}';
     }
 }
