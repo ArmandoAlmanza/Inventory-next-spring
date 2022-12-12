@@ -34,7 +34,7 @@ public class UserController {
     public void addUser(@RequestBody NewUserRequest req) {
         User user = new User();
         if (req.userName() == null) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Need to add a user name");
         }
 
         if (req.userImagePath() != null) {
