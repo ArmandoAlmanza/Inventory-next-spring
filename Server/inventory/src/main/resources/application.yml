@@ -9,7 +9,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: create-delete
+      ddl-auto: create-drop
     properties:
       dialect: org.hibernate.dialect.MySQLDialect
       format_sql: true
