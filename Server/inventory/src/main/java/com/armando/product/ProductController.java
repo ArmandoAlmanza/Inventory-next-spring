@@ -36,9 +36,11 @@ public class ProductController {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,
 					"You need to add the product name and the other fields");
 		}
-		if (req.productImagePath() != null) {
-			product.setProductImagePath(req.productImagePath());
-		}
+		if (req.productImagePath() == null || req.productImagePath() == "") {
+            product.setProductImagePath("https://avatars.dicebear.com/api/adventurer/your-custom-seed.svg");
+        } else {
+            product.setProductImagePath(req.productImagePath());
+        }
 
 		product.setProductName(req.productName());
 		product.setProductDescription(req.productDescription);

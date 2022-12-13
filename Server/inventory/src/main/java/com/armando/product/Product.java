@@ -2,7 +2,6 @@ package com.armando.product;
 
 import java.util.Objects;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,7 +15,6 @@ public class Product {
 	private String productName;
 	private String productDescription;
 
-	@Column(columnDefinition = "varchar(500) default 'https://avatars.dicebear.com/api/adventurer/your-custom-seed.svg'")
 	private String productImagePath;
 	
 	private String productTag;

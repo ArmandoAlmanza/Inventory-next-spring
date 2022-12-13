@@ -37,7 +37,9 @@ public class UserController {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Need to add a user name");
         }
 
-        if (req.userImagePath() != null) {
+        if (req.userImagePath() == null || req.userImagePath() == "") {
+            user.setUserImagePath("https://avatars.dicebear.com/api/adventurer/your-custom-seed.svg");
+        } else {
             user.setUserImagePath(req.userImagePath());
         }
 
@@ -46,4 +48,5 @@ public class UserController {
         user.setUserPassword(req.userPassword());
         userRepository.save(user);
     }
+
 }

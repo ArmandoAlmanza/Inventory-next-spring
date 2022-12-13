@@ -3,6 +3,7 @@ package com.armando.inventory;
 import com.armando.product.Product;
 import com.armando.user.User;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,10 +19,10 @@ public class Inventory {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 
-	@OneToMany(targetEntity = User.class)
+	@OneToMany(targetEntity = User.class, cascade = CascadeType.ALL)
 	private List<User> user;
 
-	@OneToMany(targetEntity = Product.class)
+	@OneToMany(targetEntity = Product.class, cascade = CascadeType.ALL)
 	private List<Product> product;
 
 	public Inventory() {
