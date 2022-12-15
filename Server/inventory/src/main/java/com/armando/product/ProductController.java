@@ -24,13 +24,16 @@ public class ProductController {
 			String productTag) {
 	}
 
+	record NewMessage(String message) {
+    }
+
 	@GetMapping
 	public List<Product> greet() {
 		return productRepository.findAll();
 	}
 
 	@PostMapping
-	public void addProduct(@RequestBody newProductRequest req) {
+	public NewMessage addProduct(@RequestBody newProductRequest req) {
 		Product product = new Product();
 		if (req.productName() == null) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,
@@ -47,6 +50,7 @@ public class ProductController {
 		product.setProductTag(req.productTag);
 
 		productRepository.save(product);
+        return new NewMessage("User added succesfully");
 
 	}
 
